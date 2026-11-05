@@ -114,7 +114,7 @@ void segv_handler(int sig, siginfo_t *info, void *ctx) {
 
   int seg_end = seg->p_vaddr + seg->p_memsz;
   if (page_start < seg->p_vaddr)
-    frag_bytes += seg->p_vaddr - page_start;
+    frag_bytes += page_size;
   else if (seg_end < page_end)
     frag_bytes += page_end - seg_end;
 }
